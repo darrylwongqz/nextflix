@@ -3,7 +3,7 @@ import Banner from "../components/Banner/Banner";
 import SectionCards from "../components/Card/SectionCards";
 import NavBar from "../components/NavBar/NavBar";
 import styles from "../styles/Home.module.css";
-import useRedirectUser from "../utils/redirectUser";
+import redirectUser from "../utils/redirectUser";
 
 import {
   getPopularVideos,
@@ -12,7 +12,7 @@ import {
 } from "../lib/videos";
 
 export async function getServerSideProps(context) {
-  const { userId, token } = await useRedirectUser(context); // refactor later to solve for hooks in server side code problem
+  const { userId, token } = await redirectUser(context);
   const watchItAgainVideos = await getWatchItAgainVideos(userId, token);
   const disneyVideos = await getVideos("disney trailer");
   const productivityVideos = await getVideos("Productivity");
