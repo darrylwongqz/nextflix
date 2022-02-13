@@ -1,7 +1,7 @@
 import { magicAdmin } from "../../lib/magic";
 import jwt from "jsonwebtoken";
 import { createNewUser, isNewUser } from "../../lib/db/hasura";
-import { setTokenCookie } from "../../lib/db/cookies";
+import { setTokenCookie } from "../../lib/cookies";
 
 export default async function login(req, res) {
   if (req.method === "POST") {
