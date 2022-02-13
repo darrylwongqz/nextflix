@@ -6,7 +6,6 @@ import styles from "./SectionCards.module.css";
 
 const SectionCards = (props) => {
   const { title, videos = [], size, shouldWrap = false, shouldScale } = props;
-  // console.log({ videos });
 
   return (
     <section className={styles.container}>

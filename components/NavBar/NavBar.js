@@ -15,7 +15,6 @@ const NavBar = () => {
       try {
         const { email } = await magic.user.getMetadata();
         const didToken = await magic.user.getIdToken();
-        // console.log({ didToken });
         if (email) {
           setUsername(email);
         }
@@ -54,7 +53,6 @@ const NavBar = () => {
       });
 
       const res = await response.json();
-      console.log({ res });
     } catch (error) {
       console.error("Error logging out", error);
       router.push("/login");
