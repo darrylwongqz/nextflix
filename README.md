@@ -1,8 +1,10 @@
+**App Overiew**
 This is a simple Netflix clone that I built with NextJS for the frontend, and Hasura as the backend.
-
 The project uses graphQL to query and mutate data.
 
-Functionality:
+The project can be viewed at: https://nextflix-rouge.vercel.app/
+
+**Functionality:**
 1) App calls on YouTube API to dynamically pull in video data in the categories that are displayed in the app.
 2) Authentication is done via Magic-links (view more of what magic-links are at https://magic.link/, which basically verifies users by using the Ethereum blockchain)
 3) Postgres Database is used and hooked up to Hasura which handles the server-side graphql portion.
@@ -15,6 +17,6 @@ Functionality:
  5) App also uses NextJS api routes to communicate with the backend.
  6) App incorporates NextJS v12 middlewares to redirect unauthenticated users to "/login"
 
-Potential-to-dos:
+**Potential-to-dos:**
 1) Improve styling
 2) Incorporate stripe payments
