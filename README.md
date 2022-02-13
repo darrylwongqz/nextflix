@@ -1,34 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a simple Netflix clone that I built with NextJS for the frontend, and Hasura as the backend.
 
-## Getting Started
+The project uses graphQL to query and mutate data.
 
-First, run the development server:
+Functionality:
+1) App calls on YouTube API to dynamically pull in video data in the categories that are displayed in the app.
+2) Authentication is done via Magic-links (view more of what magic-links are at https://magic.link/, which basically verifies users by using the Ethereum blockchain)
+3) Postgres Database is used and hooked up to Hasura which handles the server-side graphql portion.
+  a) Database consists of users and stats table
+  b) users.issuer is the primary key, which essentially takes in the didToken given by magic.link upon authentication
+  c) users.issuer is mapped as the foreign key for stats table (i.e. stats.userId)
+  d) Stats primary key is stats.id
+  e) the table relationship is such that one user can have many stats (i.e. many video stats - where each video is either favourited, watch etc.)
+ 4) App uses Static Site Generation, Incremental Static Regeneration + client side hydration, and Server-Side Rendering to make full use of NextJS server-side capabilities
+ 5) App also uses NextJS api routes to communicate with the backend.
+ 6) App incorporates NextJS v12 middlewares to redirect unauthenticated users to "/login"
 
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Potential-to-dos:
+1) Improve styling
+2) Incorporate stripe payments
